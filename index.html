@@ -1,1 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>È il 23 Luglio?</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .risposta {
+            font-size: 10rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .no { color: #e74c3c; }
+        .si { color: #2ecc71; animation: pop 0.5s ease-in-out infinite alternate; }
+        @keyframes pop {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>È il 23 Luglio?</h1>
+        <div id="risposta" class="risposta"></div>
+    </div>
+
+    <script>
+        function controllaData() {
+            const oggi = new Date();
+            const giorno = oggi.getDate();
+            const mese = oggi.getMonth(); // I mesi in JS vanno da 0 (Gennaio) a 11 (Dicembre)
+
+            const elementoRisposta = document.getElementById('risposta');
+
+            // 6 corrisponde a Luglio (0=Gen, 1=Feb, 2=Mar, 3=Apr, 4=Mag, 5=Giu, 6=Lug)
+            if (giorno === 23 && mese === 6) {
+                elementoRisposta.textContent = "SÌ!";
+                elementoRisposta.className = "risposta si";
+            } else {
+                elementoRisposta.textContent = "NO";
+                elementoRisposta.className = "risposta no";
+            }
+        }
+
+        controllaData();
+    </script>
+</body>
+</html>
 
